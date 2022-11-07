@@ -1,15 +1,18 @@
 import React, { useEffect } from "react";
 // import Dropper from "../../Dropper/Dropper";
 import { MdOutlineUpdate } from "react-icons/md";
+import { AiOutlineCloudUpload } from "react-icons/ai";
 import "./form.css";
 import { getLocalData } from "../../../utils/common";
 import axios from "axios";
-import { API_URL } from "../../../config";
+import { API_URL, MAIN_URL } from "../../../config";
 import { useCallback } from "react";
 import { useAlert } from "react-alert";
 import Dialog from "../../Dialog/Dialog";
+import MenuItem from "../../../components/Menu/MenuItem";
 
 const Form = () => {
+  // react Hooks start
   const [loader, setLoader] = React.useState(false);
   const [values, setValues] = React.useState({
     first_name: "",
@@ -23,11 +26,16 @@ const Form = () => {
     about: "",
   });
   const [open, setOpen] = React.useState(false);
-  const [profile, setProfile] = React.useState();
+  const [isImage, setIsImage] = React.useState(false);
+  const [imgPath, setImgPath] = React.useState();
+  // react Hooks end
 
+  // some declerations start
   const data = getLocalData();
   const alert = useAlert();
+  // some declerations end
 
+  // dialog state handling starts
   const setOpenDialog = () => {
     setOpen(true);
   };
@@ -35,7 +43,9 @@ const Form = () => {
   const setCloseDialog = () => {
     setOpen(false);
   };
+  // dialog state handling ends
 
+  // get user data function
   const getUserData = useCallback(() => {
     setLoader(true);
     try {
@@ -59,12 +69,14 @@ const Form = () => {
     }
   }, [data.getId, alert]);
 
+  // get user image function
   const getUserImage = useCallback(() => {
     try {
       axios
         .get(`${API_URL}/user/get_user_image/${data.getId}`)
         .then((res) => {
-          setProfile(res.data.image);
+          setIsImage(true);
+          setImgPath(`${MAIN_URL}/${res.data.image}`);
         })
         .catch((err) => {
           console.log(err);
@@ -74,15 +86,19 @@ const Form = () => {
     }
   }, [data.getId]);
 
+  // useEffect hooks starts
   useEffect(() => {
     getUserImage();
     getUserData();
   }, [getUserImage, getUserData]);
+  // useEffect hooks ends
 
+  // input handler
   const handleChange = (props) => (event) => {
     setValues({ ...values, [props]: event.target.value });
   };
 
+  // update user info starts
   const updateUserInfo = () => {
     try {
       if (
@@ -154,9 +170,11 @@ const Form = () => {
       console.log(error);
     }
   };
+  // update user info ends
 
   return (
     <>
+      {open === false ? <MenuItem /> : null}
       {loader === true ? (
         <div className="spinner__img">
           <img src="/images/spinner.gif" alt="spinner" />
@@ -173,8 +191,24 @@ const Form = () => {
               className="profile__image__container"
               onClick={setOpenDialog}
             >
-              <img src={profile} alt="profile" className="profile__img" />
-              <p className="profile__image__text">Upload image</p>
+              {isImage === true ? (
+                <img
+                  crossOrigin="anonymous"
+                  src={imgPath}
+                  alt="profile"
+                  className="profile__img"
+                />
+              ) : (
+                <img
+                  src="/images/profile.png"
+                  alt="profile"
+                  className="profile__img"
+                />
+              )}
+              <p className="profile__image__text">
+                <AiOutlineCloudUpload className="profile__image__icon" />
+                Upload image
+              </p>
             </button>
             {/* <Dropper /> */}
             <div className="p__name__container">

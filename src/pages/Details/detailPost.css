@@ -1,0 +1,127 @@
+.detailPost__container {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem auto;
+  flex-direction: column;
+}
+
+.detailPost__image {
+  width: 100%;
+}
+
+.detail__image {
+  width: 100%;
+  height: 70vh;
+}
+
+.detailPost__content {
+  margin-top: 5rem;
+}
+
+.detailPost__header {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-family: "Lora", sans-serif;
+  color: #541d1a;
+  text-transform: uppercase;
+  font-size: 42px;
+}
+
+.detailPost__body {
+  font-family: "Lora", sans-serif;
+  color: #541d1a;
+  text-align: justify;
+  font-size: 18px;
+  line-height: 2;
+}
+
+.detailPost__comment__container {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+  background-color: #fff;
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.btn__like{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #541d1a;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn__like:hover{
+  background-color: #541d1ade;
+}
+
+.comment__container{
+  width: 80%;
+  height: 50px;
+  font-size: 18px;
+  padding-left: 10px;
+  border-radius: 100px;
+  outline: none;
+  border: 2px solid lightgray;
+  transition: 0.3s;
+  
+}
+
+.comment__container:focus{
+  border: 2px solid #541d1a;
+}
+
+.detail__comment{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin-top: 2rem;
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.show__like{
+  color: #B3B6B7;
+}
+
+.show__comment__container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 30px;
+}
+
+.comment__profile{
+  width: 8%;
+}
+
+.comment__text{
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      padding: 10px;
+      margin-left: 20px;
+      color: #717D7E;
+      border-radius: 5px;
+      background-color: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.comment__author{
+  color: #541d1ac0;
+  font-weight: bold;
+  margin-top: 20px;
+}

@@ -11,7 +11,7 @@ const MenuItem = () => {
   return (
     <div className="menu__container">
       <ul className="menu__list">
-        <Link className="menu__list__item active__profile" to="/profile/main">
+        <Link className="menu__list__item" to="/profile/main">
           <TbListDetails className="menu__icon" />
           <li className="list__text">Main</li>
         </Link>
@@ -21,11 +21,11 @@ const MenuItem = () => {
         </Link>
         <Link className="menu__list__item" to="/profile/create_blog">
           <IoCreateOutline className="menu__icon" />
-          <li className="list__text">Crate Blog</li>
+          <li className="list__text">Create Content</li>
         </Link>
         <Link className="menu__list__item" to="/profile/manage">
           <GiAutoRepair className="menu__icon" />
-          <li className="list__text">Manage Blog</li>
+          <li className="list__text">Manage Contents</li>
         </Link>
         <Link className="menu__list__item">
           <MdLogout className="menu__icon" />

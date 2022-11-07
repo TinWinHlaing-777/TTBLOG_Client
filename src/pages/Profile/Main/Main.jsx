@@ -1,19 +1,21 @@
 import React from "react";
 import Form from "../../../components/Form/Profile/Form";
-import MenuItem from "../../../components/Menu/MenuItem";
 import Navbar from "../../../components/Navbar/Navbar";
 import "./main.css";
 
-const Main = () => {
+const Main = ({ openMenu, onCloseMenu }) => {
   const style = {
     paddingBottom: "20px",
   };
 
+  console.log(openMenu);
+
   return (
     <div style={style} className="container">
       <Navbar />
-      <MenuItem />
-      <Form />
+      <div className="main__profile__container">
+        <Form />
+      </div>
     </div>
   );
 };

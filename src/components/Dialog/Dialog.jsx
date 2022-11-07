@@ -2,9 +2,16 @@ import React from "react";
 import "./dialog.css";
 import { HiOutlineUpload } from "react-icons/hi";
 import { MdDeleteForever } from "react-icons/md";
+import axios from "axios";
+import { API_URL } from "../../config";
+import { getLocalData } from "../../utils/common";
+import { useAlert } from "react-alert";
 
 const Dialog = ({ open, onClose }) => {
   const [selectFile, setSelectFile] = React.useState();
+
+  const data = getLocalData();
+  const alert = useAlert();
 
   const handleImage = (e) => {
     setSelectFile(e.target.files[0]);
@@ -12,7 +19,31 @@ const Dialog = ({ open, onClose }) => {
 
   const uploadImage = (e) => {
     e.preventDefault();
-    console.log(selectFile);
+    try {
+      if (selectFile !== null) {
+        const formData = new FormData();
+        formData.append("image", selectFile);
+        const config = {
+          Headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        };
+        console.log(formData);
+        axios
+          .patch(`${API_URL}/user/update_image/${data.getId}`, formData, config)
+          .then((res) => {
+            onClose();
+            window.location.reload(true);
+          })
+          .catch((err) => {
+            alert.error(err.message);
+          });
+      } else {
+        alert.error("File muse be selected!");
+      }
+    } catch (error) {
+      alert.error(error.message);
+    }
   };
 
   return (

@@ -12,7 +12,7 @@
 .dialog__title {
   text-align: center;
   margin-bottom: 30px;
-  color: #a02254;
+  color: #541d1a;
   font-family: "Playfair Display", serif;
   font-weight: bold;
   font-size: 18px;
@@ -41,11 +41,11 @@
 }
 
 .profile__upload__btn {
-  width: 30%;
+  width: 20%;
   border: none;
-  background-color: #a02254;
+  background-color: #541d1a;
   color: #fff;
-  padding: 5px 3px;
+  padding: 10px 3px;
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
@@ -59,11 +59,11 @@
 }
 
 .profile__cancel__btn {
-  width: 30%;
-  border: 1px solid #a02254;
+  width: 20%;
+  border: 1px solid #541d1a;
   background-color: #fff;
-  color: #a02254;
-  padding: 5px 3px;
+  color: #541d1a;
+  padding: 10px 3px;
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
@@ -77,6 +77,6 @@
 }
 
 .profile__upload__btn:hover {
-  background-color: #c4346e;
+  background-color: #541d1a;
   color: #fff;
 }
