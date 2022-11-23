@@ -62,7 +62,7 @@ export const router = createBrowserRouter([
     element: <ViewContent />,
   },
   {
-    path: '/views/detail',
+    path: '/views/detail/:id',
     element: <DetailsPost />,
   },
 ]);

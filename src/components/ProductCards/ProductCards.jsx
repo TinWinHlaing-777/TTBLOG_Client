@@ -4,22 +4,18 @@ import { Fade } from 'react-reveal';
 import axios from 'axios';
 import './productcard.css';
 import { getLocalData } from '../../utils/common';
-import { useNavigate } from 'react-router';
-import CreateBlog from '../../pages/Profile/Create_Blog/CreateBlog';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const ProductCards = () => {
   const [postData, setPostData] = React.useState([]);
   const [editField, setEditField] = React.useState(false);
-  const [editData, setEditData] = React.useState();
-  const [open, setOpen] = React.useState(false);
 
   const userId = getLocalData();
   const navigate = useNavigate();
 
   useEffect(() => {
     getPostData();
-  }, []);
+  });
 
   const getPostData = async () => {
     const viewData = [];
@@ -62,13 +58,13 @@ const ProductCards = () => {
     }
   };
 
-  // const specificData = data => {
-  //   setOpen(() => {
-  //     return true;
-  //   });
-  //   setEditData(data);
-  //   navigate();
-  // };
+  const viewDetails = data => {
+    navigate(`/views/detail/${data}`);
+  };
+
+  const updatePostInfo = data => {
+    navigate(`/profile/update_blog/${data}`);
+  };
 
   return (
     <>
@@ -99,24 +95,34 @@ const ProductCards = () => {
                 </div>
                 {editField === false ? (
                   <div className='list__card__footer'>
-                    <Link to={`/profile/update_blog/${element._id}`}>
-                      <button
-                        className='edit__card__btn'
-                        // onClick={() => {
-                        //   specificData(element);
-                        // }}
-                      >
-                        Edit
-                      </button>
-                    </Link>
+                    <button
+                      className='edit__card__btn'
+                      onClick={() => updatePostInfo(element._id)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className='view__card__btn'
+                      onClick={() => viewDetails(element._id)}
+                    >
+                      View
+                    </button>
                   </div>
-                ) : null}
+                ) : (
+                  <div className='list__card__footer'>
+                    <button
+                      className='view__card__btn'
+                      onClick={() => viewDetails(element._id)}
+                    >
+                      View
+                    </button>
+                  </div>
+                )}
               </div>
             </Fade>
           );
         })}
       </div>
-      {/* <CreateBlog open={open} data={editData} /> */}
     </>
   );
 };

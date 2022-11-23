@@ -8,6 +8,9 @@
 }
 
 .detailPost__image {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  background-color: #fff;
   width: 100%;
 }
 
@@ -50,7 +53,7 @@
   border-radius: 5px;
 }
 
-.btn__like{
+.btn__like {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,11 +68,11 @@
   transition: 0.3s;
 }
 
-.btn__like:hover{
+.btn__like:hover {
   background-color: #541d1ade;
 }
 
-.comment__container{
+.comment__container {
   width: 80%;
   height: 50px;
   font-size: 18px;
@@ -78,49 +81,49 @@
   outline: none;
   border: 2px solid lightgray;
   transition: 0.3s;
-  
+
 }
 
-.comment__container:focus{
+.comment__container:focus {
   border: 2px solid #541d1a;
 }
 
-.detail__comment{
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+.detail__comment {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin-top: 2rem;
   width: 100%;
   padding: 10px;
   border-radius: 5px;
 }
 
-.show__like{
+.show__like {
   color: #B3B6B7;
 }
 
-.show__comment__container{
+.show__comment__container {
   display: flex;
   justify-content: space-around;
   align-items: center;
   padding: 30px;
 }
 
-.comment__profile{
+.comment__profile {
   width: 8%;
 }
 
-.comment__text{
-      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-      padding: 10px;
-      margin-left: 20px;
-      color: #717D7E;
-      border-radius: 5px;
-      background-color: #fff;
+.comment__text {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  margin-left: 20px;
+  color: #717D7E;
+  border-radius: 5px;
+  background-color: #fff;
   width: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.comment__author{
+.comment__author {
   color: #541d1ac0;
   font-weight: bold;
   margin-top: 20px;
