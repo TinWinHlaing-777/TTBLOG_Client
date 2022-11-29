@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react';
-import { API_URL, MAIN_URL } from '../../config';
-import { Fade } from 'react-reveal';
-import axios from 'axios';
-import './productcard.css';
-import { getLocalData } from '../../utils/common';
-import { useNavigate } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { API_URL, MAIN_URL } from "../../config";
+import { Fade } from "react-reveal";
+import axios from "axios";
+import "./productcard.css";
+import { getLocalData } from "../../utils/common";
+import { useNavigate } from "react-router-dom";
 
 const ProductCards = () => {
   const [postData, setPostData] = React.useState([]);
@@ -19,19 +19,19 @@ const ProductCards = () => {
 
   const getPostData = async () => {
     const viewData = [];
-    if (window.location.pathname === '/views/all') {
+    if (window.location.pathname === "/views/all") {
       try {
         setEditField(true);
 
         await axios
           .get(`${API_URL}/post/all`)
-          .then(res => {
-            res.data.forEach(element => {
+          .then((res) => {
+            res.data.forEach((element) => {
               viewData.push(element);
-              setPostData(viewData);
+              setPostData(viewData.reverse());
             });
           })
-          .catch(err => {
+          .catch((err) => {
             console.log(err);
           });
       } catch (error) {
@@ -43,13 +43,13 @@ const ProductCards = () => {
 
         await axios
           .get(`${API_URL}/post/all/user/${userId.getId}`)
-          .then(res => {
-            res.data.forEach(data => {
+          .then((res) => {
+            res.data.forEach((data) => {
               viewData.push(data);
-              setPostData(viewData);
+              setPostData(viewData.reverse());
             });
           })
-          .catch(err => {
+          .catch((err) => {
             console.log(err);
           });
       } catch (error) {
@@ -58,60 +58,60 @@ const ProductCards = () => {
     }
   };
 
-  const viewDetails = data => {
+  const viewDetails = (data) => {
     navigate(`/views/detail/${data}`);
   };
 
-  const updatePostInfo = data => {
+  const updatePostInfo = (data) => {
     navigate(`/profile/update_blog/${data}`);
   };
 
   return (
     <>
-      <div className='list__header'>
-        <h1 className='show__list__title'>Find Preferable Content</h1>
+      <div className="list__header">
+        <h1 className="show__list__title">Find Preferable Content</h1>
         <input
-          type='text'
-          className='find__post__input'
-          placeholder='Find the relevant contents'
+          type="text"
+          className="find__post__input"
+          placeholder="Find the relevant contents"
         />
       </div>
-      <div className='list__card__container'>
+      <div className="list__card__container">
         {postData.map((element, index) => {
           return (
             <Fade bottom key={index}>
-              <div className='list__card'>
-                <div className='list__card__image__container'>
+              <div className="list__card">
+                <div className="list__card__image__container">
                   <img
-                    crossOrigin='anonymous'
+                    crossOrigin="anonymous"
                     src={`${MAIN_URL}/${element.postImage}`}
-                    alt='sample'
-                    className='list__card__image'
+                    alt="sample"
+                    className="list__card__image"
                   />
                 </div>
-                <div className='list__card__body'>
-                  <h3 className='body__title'>{element.post_title}</h3>
-                  <p className='body__text'>{element.post_body}</p>
+                <div className="list__card__body">
+                  <h3 className="body__title">{element.post_title}</h3>
+                  <p className="body__text">{element.post_body}</p>
                 </div>
                 {editField === false ? (
-                  <div className='list__card__footer'>
+                  <div className="list__card__footer">
                     <button
-                      className='edit__card__btn'
+                      className="edit__card__btn"
                       onClick={() => updatePostInfo(element._id)}
                     >
                       Edit
                     </button>
                     <button
-                      className='view__card__btn'
+                      className="view__card__btn"
                       onClick={() => viewDetails(element._id)}
                     >
                       View
                     </button>
                   </div>
                 ) : (
-                  <div className='list__card__footer'>
+                  <div className="list__card__footer">
                     <button
-                      className='view__card__btn'
+                      className="view__card__btn"
                       onClick={() => viewDetails(element._id)}
                     >
                       View
