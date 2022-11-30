@@ -82,7 +82,7 @@ const Register = () => {
   return (
     <div className="main__container">
       <div className="card__container">
-        <img src="/images/formGif.gif" alt="form__gif" className="form__gif" />
+        {/* <img src="/images/formGif.gif" alt="form__gif" className="form__gif" /> */}
         <div className="form__container">
           <img src="/images/main_logo.png" alt="logo" className="logo__img" />
           <form method="post" onSubmit={registerUser}>

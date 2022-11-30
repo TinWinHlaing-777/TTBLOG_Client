@@ -87,6 +87,13 @@
   border: 2px solid #541d1a;
 }
 
+.warning__text{
+  color: #b3b6b7;
+  margin-right: auto;
+  margin-top: 5rem;
+  font-weight: bold;
+}
+
 .detail__comment {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   margin-top: 2rem;
@@ -107,7 +114,10 @@
 }
 
 .comment__profile {
-  width: 8%;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .comment__text {

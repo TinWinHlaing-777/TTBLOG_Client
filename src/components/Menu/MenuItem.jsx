@@ -6,8 +6,11 @@ import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { IoCreateOutline } from "react-icons/io5";
 import { GiAutoRepair } from "react-icons/gi";
 import { MdLogout } from "react-icons/md";
+import { clearLocalData } from "../../utils/common";
 
 const MenuItem = () => {
+  // const navigate = useNavigate();
+
   return (
     <div className="menu__container">
       <ul className="menu__list">
@@ -27,7 +30,11 @@ const MenuItem = () => {
           <GiAutoRepair className="menu__icon" />
           <li className="list__text">Manage Contents</li>
         </Link>
-        <Link className="menu__list__item">
+        <Link
+          className="menu__list__item"
+          to="/login"
+          onClick={() => clearLocalData()}
+        >
           <MdLogout className="menu__icon" />
           <li className="list__text">Logout</li>
         </Link>

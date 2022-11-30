@@ -51,7 +51,6 @@ const Home = () => {
         })
         .catch((err) => {
           clearLocalData();
-          navigate("/login");
         });
     } catch (error) {
       alert.error(error.message);
