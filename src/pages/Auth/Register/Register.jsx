@@ -1,6 +1,5 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FcGoogle } from "react-icons/fc";
 import { IoCreateOutline } from "react-icons/io5";
 import validator from "validator";
 import { useAlert } from "react-alert";
@@ -81,113 +80,91 @@ const Register = () => {
 
   return (
     <div className="main__container">
-      <div className="card__container">
-        {/* <img src="/images/formGif.gif" alt="form__gif" className="form__gif" /> */}
-        <div className="form__container">
-          <img src="/images/main_logo.png" alt="logo" className="logo__img" />
-          <form method="post" onSubmit={registerUser}>
-            <div className="name__container">
-              <div className="fname__container">
-                <input
-                  type="text"
-                  name="First Name"
-                  id="first_name"
-                  className="input__check"
-                  placeholder="First Name"
-                  value={values.first_name}
-                  onChange={handleChange("first_name")}
-                />
-              </div>
-              <div className="lname__container">
-                <input
-                  type="text"
-                  name="First Name"
-                  id="last_name"
-                  className="input__check"
-                  placeholder="Last Name"
-                  value={values.last_name}
-                  onChange={handleChange("last_name")}
-                />
-              </div>
-            </div>
-            <div className="business__container">
-              <div className="org__container">
-                <input
-                  type="text"
-                  name="Organization Name"
-                  id="org_name"
-                  className="input__check"
-                  placeholder="Organization Name"
-                  value={values.org_name}
-                  onChange={handleChange("org_name")}
-                />
-              </div>
-              <div className="b__container">
-                <input
-                  type="text"
-                  name="Business Name"
-                  id="business_name"
-                  className="input__check"
-                  placeholder="Business Name"
-                  value={values.business_name}
-                  onChange={handleChange("business_name")}
-                />
-              </div>
-            </div>
+      <form method="post" onSubmit={registerUser} className="register__form">
+        <img src="/images/main_logo.png" alt="logo" className="logo__img" />
 
-            <div className="email__container">
-              <input
-                type="email"
-                name="Email"
-                id="email"
-                placeholder="example@gmail.com"
-                className="input__check"
-                value={values.email}
-                onChange={handleChange("email")}
-              />
-            </div>
-            <div className="password__container">
-              <input
-                type="password"
-                name="Password"
-                id="password"
-                className="input__check"
-                placeholder="Password"
-                value={values.password}
-                onChange={handleChange("password")}
-              />
-            </div>
-            <div className="password__container">
-              <input
-                type="password"
-                name="CoPassword"
-                id="co_password"
-                className="input__check"
-                placeholder="Re-enter Password"
-                value={values.co_password}
-                onChange={handleChange("co_password")}
-              />
-            </div>
+        <div className="name__container">
+          <input
+            type="text"
+            name="First Name"
+            id="first_name"
+            className="name__check"
+            placeholder="First Name"
+            value={values.first_name}
+            onChange={handleChange("first_name")}
+          />
 
-            <div className="btn__container">
-              <button type="submit" className="submit__btn">
-                <IoCreateOutline className="btn__icon" />
-                Create an account
-              </button>
-            </div>
-          </form>
-          <Link className="google__container">
-            <FcGoogle className="google__icon" />
-            Create an account with Google
-          </Link>
-          <p className="spam__text__container">
-            Already have an account? Please{" "}
-            <Link to="/login" className="spam__text">
-              login
-            </Link>
-          </p>
+          <input
+            type="text"
+            name="First Name"
+            id="last_name"
+            className="name__check"
+            placeholder="Last Name"
+            value={values.last_name}
+            onChange={handleChange("last_name")}
+          />
         </div>
-      </div>
+        <div className="business__container">
+          <input
+            type="text"
+            name="Organization Name"
+            id="org_name"
+            className="b__check"
+            placeholder="Organization Name"
+            value={values.org_name}
+            onChange={handleChange("org_name")}
+          />
+          <input
+            type="text"
+            name="Business Name"
+            id="business_name"
+            className="b__check"
+            placeholder="Business Name"
+            value={values.business_name}
+            onChange={handleChange("business_name")}
+          />
+        </div>
+        <input
+          type="email"
+          name="Email"
+          id="email"
+          placeholder="example@gmail.com"
+          className="input__check"
+          value={values.email}
+          onChange={handleChange("email")}
+        />
+
+        <input
+          type="password"
+          name="Password"
+          id="password"
+          className="input__check"
+          placeholder="Password"
+          value={values.password}
+          onChange={handleChange("password")}
+        />
+
+        <input
+          type="password"
+          name="CoPassword"
+          id="co_password"
+          className="input__check"
+          placeholder="Re-enter Password"
+          value={values.co_password}
+          onChange={handleChange("co_password")}
+        />
+
+        <button type="submit" className="submit__btn">
+          <IoCreateOutline className="btn__icon" />
+          Create an account
+        </button>
+        <p className="spam__text__container">
+          Already have an account? Please{" "}
+          <Link to="/login" className="spam__text">
+            login
+          </Link>
+        </p>
+      </form>
     </div>
   );
 };

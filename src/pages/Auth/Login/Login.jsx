@@ -2,7 +2,6 @@ import React from "react";
 import "../auth.css";
 import { Link, useNavigate } from "react-router-dom";
 import { MdLogin } from "react-icons/md";
-import { FcGoogle } from "react-icons/fc";
 import { useAlert } from "react-alert";
 import {
   clearLocalData,
@@ -56,11 +55,8 @@ const Login = () => {
 
   return (
     <div className="main__container">
-      <div className="card__container">
-        <img src="/images/formGif.gif" alt="form__gif" className="form__gif" />
-        <div className="form__container">
+          <form method="post" onSubmit={loginUser} className="register__form">
           <img src="/images/main_logo.png" alt="logo" className="logo__img" />
-          <form method="post" onSubmit={loginUser}>
             <input
               type="email"
               name="Email"
@@ -82,24 +78,18 @@ const Login = () => {
             <Link to="/forget_password" className="forget__text margin__fixed">
               Forget Password?
             </Link>
-            <button type="submit" className="submit__btn margin__fixed">
+            <button type="submit" className="submit__btn">
               <MdLogin className="btn__icon" />
               Login
             </button>
-          </form>
-          <Link className="google__container">
-            <FcGoogle className="google__icon" />
-            Login with Google
-          </Link>
           <p className="spam__text__container">
             If you don't have an account, please{" "}
             <Link to="/register" className="spam__text">
               register first
             </Link>
           </p>
+          </form>
         </div>
-      </div>
-    </div>
   );
 };
 

@@ -80,3 +80,17 @@
   font-weight: bold;
   padding-bottom: 1rem;
 }
+
+@media screen and (max-width: 768px){
+  .footer__container{
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .first__footer,
+  .second__footer,
+  .third__footer{
+    align-items: center;
+  }
+
+}

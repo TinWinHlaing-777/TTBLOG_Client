@@ -5,7 +5,6 @@ import { useEffect } from "react";
 import { API_URL } from "../../config";
 import axios from "axios";
 import { clearLocalData, getLocalData } from "../../utils/common";
-import { useNavigate } from "react-router";
 import "./home.css";
 import { Fade } from "react-reveal";
 import Footer from "../../components/Footer/Footer";
@@ -14,7 +13,6 @@ import { Link } from "react-router-dom";
 const Home = () => {
   const token = getLocalData().getToken;
   const alert = useAlert();
-  const navigate = useNavigate();
 
   const data = [
     {
@@ -136,7 +134,7 @@ const Home = () => {
         </div>
         <div className="dashboard__view">
           <Fade left>
-            <div className="dashboard_left">
+            <div className="dashboard__left">
               <img
                 src="/images/dashboard.png"
                 alt="dashboard"
@@ -145,7 +143,7 @@ const Home = () => {
             </div>
           </Fade>
           <Fade right cascade>
-            <div className="dashboard_right">
+            <div className="dashboard__right">
               <h1 className="dashboard__view__title">Check Your Dashboard</h1>
               <p className="dashboard__view__body">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque

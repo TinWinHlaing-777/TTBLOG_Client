@@ -1,155 +1,164 @@
-.main__container{
+.main__container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
 }
 
-.card__container{
-    width: 80%;
-    height: auto;
-    display: flex;
-    background-color: rgb(255, 242, 242);
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
 
-.form__gif{
+.register__form {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 50%;
     height: auto;
     margin: auto;
-}
-
-.form__container{
-    background-color: #a02254;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    width: 100%;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 20px;
+    padding: 50px;
 }
 
-.logo__img{
-    width: 15em;
-    height: 10em;
+.logo__img {
+    width: 18em;
+    height: auto;
+    margin: auto;
 }
 
-.name__container, .business__container{
+.name__container,
+.business__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
+
 }
 
-.fname__container, .lname__container, .org__container, .b__container{
-    margin: 10px;
-}
-
-.email__container, .password__container, .btn__container{
-    margin: 20px 10px;
-}
-
-.input__label{
+.input__label {
     color: #fff;
     font-size: 18px;
     font-weight: bold;
 }
 
-.input__check{
+.name__check,
+.b__check {
     width: 100%;
     height: 40px;
-    border-radius: 5px;
     border: none;
+    border-bottom: 2px solid #a7a7a7;
     padding: 10px 20px;
     font-size: 18px;
     outline: none;
+    margin: 10px;
 }
 
-.input__check:focus{
-    border: 1px solid #de4381;
+.input__check {
+    width: 98%;
+    height: 40px;
+    border: none;
+    border-bottom: 2px solid #a7a7a7;
+    padding: 10px 20px;
+    font-size: 18px;
+    outline: none;
+    margin: 10px;
 }
 
-
+.input__check:focus,
+.name__check:focus,
+.b__check:focus {
+    border-bottom: 2px solid #551E19;
+}
 
 .forget__text{
-    color: #fff;
+    color: #551E19;
     text-decoration: none;
     font-weight: bold;
     transition: .6s ease;
 }
 
 .forget__text:hover{
-    color: rgb(254, 187, 187);
+    color: #4f1813;
 }
 
-.submit__btn{
+.submit__btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 30px;
-    margin: 10px 0px;
+    width: 50%;
+    height: 40px;
+    margin: 20px 0px;
+    padding: 10px;
     border-radius: 5px;
     border: none;
     cursor: pointer;
     font-size: 16px;
-    background-color: #fff;
+    background-color: #551E19;
     font-weight: bold;
     transition: .6s ease;
     text-transform: uppercase;
+    color: #fff;
+
 }
 
-.margin__fixed{
+.margin__fixed {
     margin: 10px 30px;
     width: 89%;
 }
 
-.btn__icon{
+.btn__icon {
     font-weight: 800;
     margin-right: 10px;
     font-size: 18px;
 }
 
-.submit__btn:hover{
-    background-color: #d73f7cd2;
+.submit__btn:hover {
+    background-color: #4f1813;
     color: #fff;
 }
 
-.google__container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #a02254;
-    text-decoration: none;
-    border: 2px solid #fff;
-    width: 89%;
-    margin: 10px 0px;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #fff;
-    font-weight: bold;
-}
-
-.google__icon{
-    margin-right: 10px;
-    width: 20px;
-    height: 20px;
-}
-
-.spam__text__container{
-    color: #fff;
+.spam__text__container {
+    color: #551E19;
     margin: 10px 0px;
 }
 
-.spam__text{
+.spam__text {
     text-decoration: none;
-    color: #fff;
+    color: #551E19;
     font-weight: bold;
     transition: .6s ease;
 }
 
-.spam__text:hover{
-    color: rgb(254, 187, 187);
+.spam__text:hover {
+    color: #4f1813;
+}
+
+@media screen and (max-width:768px){
+    .register__form{
+        width: 95%;
+        padding: 20px;
+    }
+
+    .logo__img{
+        width: 10em;
+        height: auto;
+    }
+    .name__container, .business__container{
+        flex-direction: column;
+    }
+
+    .input__check{
+        width: 100%;
+    }
+
+    .submit__btn{
+        width: 100%;
+        font-size: 12px;
+        height: 30px;
+        margin: 10px 0px;
+    }
+
+    .spam__text__container{
+        margin: 5px 0px;
+    }
+
 }

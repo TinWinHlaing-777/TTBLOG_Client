@@ -202,3 +202,104 @@
   height: auto;
   margin-left: 5%;
 }
+
+@media screen and (max-width:768px){
+  .landing__container{
+    height: 80vh;
+  }
+  .landing__main{
+    height: 80vh;
+  }
+  .landing__text{
+    font-size: 20px;
+  }
+  .start__btn{
+    padding: 5px 20px;
+    font-size: 14px;
+  }
+  .view__container{
+    margin: 2rem auto 0 auto;
+    padding-top: 2rem;
+    flex-direction: column;
+  }
+
+  .view__left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .view__container__title{
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  .view__container__body{
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: .5rem;
+  }
+  .view__container__btn,
+  .explore__more__btn,
+  .dashboard__view__btn{
+    padding: 5px 30px;
+    margin-bottom: 2rem;
+  }
+
+  .view__img{
+    margin-top: 2rem;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .detail__container{
+    margin-top: 1rem;
+  }
+
+  .detail__text{
+    margin-top: 1rem;
+    font-size: 20px;
+  }
+
+  .card__main{
+    flex-direction: column;
+    margin: auto;
+  }
+
+  .card{
+    width: auto;
+  }
+
+  .dashboard__view{
+    flex-direction: column;
+  }
+
+  .dashboard__left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dashboard__img{
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .dashboard__right{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 3rem;
+  }
+
+  .dashboard__view__title{
+    font-size: 20px;
+  }
+
+  .dashboard__view__body{
+    text-align: center;
+  }
+
+}
