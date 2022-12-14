@@ -42,6 +42,14 @@
   display: none;
 }
 
+@media screen and (max-width: 1024px) {
+  .main__logo{
+    width: 200px;
+    height: auto;
+    border-radius: 50%;
+  }
+}
+
 @media screen and (max-width: 768px) {
   .main__logo {
     width: 150px;

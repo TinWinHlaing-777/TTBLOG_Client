@@ -46,7 +46,23 @@ const DetailsPost = () => {
     }
   };
 
+  const updateViewer = async () => {
+    try {
+      await axios
+        .patch(`${API_URL}/post/update/viewer/${id}`)
+        .then((res) => {
+          showDetails();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
+    updateViewer();
     showDetails();
     getComment();
     checkRoute();
@@ -184,7 +200,8 @@ const DetailsPost = () => {
             )}
             <div className="detail__comment">
               <p className="show__like">
-                {element.likeCount.length} like this post
+                <span>{element.likeCount.length} likes</span>
+                <span>{element.viewCount} views</span>
               </p>
               {commentInfo.map((element, index) => {
                 return (

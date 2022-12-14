@@ -174,3 +174,70 @@
 .create__check__image{
   width: 100%;
 }
+
+@media screen and (max-width:768px) {
+  .create__main__container{
+    height: 80vh;
+  }
+
+  .create__main__title{
+    font-size: 18px;
+  }
+
+  .create__main__btn{
+    padding: 5px 20px;
+    font-size: 14px;
+  }
+
+  .create__manage__container,
+  .create__check__container{
+    margin: 2rem auto 0 auto;
+    padding-top: 2rem;
+    flex-direction: column;
+  }
+  
+  .create__manage__left,
+  .create__check__text__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 2rem auto;
+  }
+
+  .create__manage__title,
+  .create__card__container__title,
+  .create__check__title{
+    text-align: center;
+    font-size: 20px;
+  }
+
+  .create__manage__body,
+  .create__check__body{
+    text-align: center;
+  }
+
+  .create__manage__btn,
+  .create__card__btn,
+  .create__check__btn{
+    padding: 5px 30px;
+  }
+
+  .create__manage__image,
+  .create__check__image{
+    margin-top: 2rem;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  .create__card{
+    flex-direction: column;
+    width: auto;
+  }
+
+  .create__main__card{
+    width: auto;
+  }
+
+}

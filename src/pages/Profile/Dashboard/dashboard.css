@@ -1,0 +1,6 @@
+.main__dashboard__container{
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-top: 2%;
+}

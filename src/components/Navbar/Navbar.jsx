@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { HiOutlineViewList } from "react-icons/hi";
 import { IoIosCreate } from "react-icons/io";
-import { MdLogin } from "react-icons/md";
+import { MdLogin,MdDashboard } from "react-icons/md";
 import { BsPersonCircle } from "react-icons/bs";
-import { TiInfo } from "react-icons/ti";
+// import { TiInfo } from "react-icons/ti";
+import { AiFillHome } from "react-icons/ai";
 import "./navbar.css";
 import { getLocalData } from "../../utils/common";
 
@@ -27,18 +27,22 @@ const Navbar = () => {
       </Link>
       <div className="navList__container">
         <ul className="main__list">
+          <Link className="list__item" to="/">
+            <AiFillHome className="list__item__icon" />
+            <li className="list__item__text">Home</li>{" "}
+          </Link>
           <Link className="list__item" to="/services/view">
-            <HiOutlineViewList className="list__item__icon" />
+            <MdDashboard className="list__item__icon" />
             <li className="list__item__text">View Blogs</li>{" "}
           </Link>
           <Link className="list__item" to="/services/create">
             <IoIosCreate className="list__item__icon" />
             <li className="list__item__text">Create</li>
           </Link>
-          <Link className="list__item" to="/services/about">
+          {/* <Link className="list__item" to="/services/about">
             <TiInfo className="list__item__icon" />
             <li className="list__item__text">About Us</li>
-          </Link>
+          </Link> */}
           {isToken === false ? (
             <Link className="list__item" to="/login">
               <MdLogin className="list__item__icon" />

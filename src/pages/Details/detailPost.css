@@ -103,7 +103,13 @@
 }
 
 .show__like {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   color: #b3b6b7;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 1rem
 }
 
 .show__comment__container {

@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { API_URL } from "../../config";
 import axios from "axios";
 import { clearLocalData, getLocalData } from "../../utils/common";
-import "./home.css";
+import "./home.css"
 import { Fade } from "react-reveal";
 import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
@@ -67,15 +67,15 @@ const Home = () => {
               </h1>
             </Fade>
             <Fade bottom>
-              <button className="start__btn">Get Started</button>
+              <Link className="start__btn">Get Started</Link>
             </Fade>
           </div>
         </div>
-        <div className="view__container">
+        <div className="first__sub__container">
           <Fade left cascade>
-            <div className="view__left">
-              <h1 className="view__container__title">View all contents</h1>
-              <p className="view__container__body">
+            <div className="first__sub__left">
+              <h1 className="first__sub__title">View all contents</h1>
+              <p className="first__sub__body">
                 {/* All of the contents related with technology, science, medical,
                 entertainment, sports, business and so many articles can be foud
                 in our system. */}
@@ -85,22 +85,22 @@ const Home = () => {
                 itaque molestiae incidunt ut architecto minus.
               </p>
               <Link to="/views/all">
-                <button className="view__container__btn">View</button>
+                <button className="first__sub__btn">View</button>
               </Link>
             </div>
           </Fade>
           <Fade right cascade>
-            <div className="view__right">
+            <div className="first__sub__right">
               <img
                 src="/images/view_image.png"
                 alt="view"
-                className="view__img"
+                className="first__sub__img"
               />
             </div>
           </Fade>
         </div>
-        <div className="detail__container">
-          <h1 className="detail__text">
+        <div className="second__sub__container">
+          <h1 className="second__sub__text">
             <Fade top cascade>
               Most Popular Blogs
             </Fade>
@@ -128,31 +128,31 @@ const Home = () => {
           </Fade>
           <Fade bottom>
             <Link to="/views/all">
-              <button className="explore__more__btn">Explore More</button>
+              <button className="more__btn">Explore More</button>
             </Link>
           </Fade>
         </div>
-        <div className="dashboard__view">
+        <div className="third__sub__container">
           <Fade left>
-            <div className="dashboard__left">
+            <div className="third__sub__left">
               <img
                 src="/images/dashboard.png"
                 alt="dashboard"
-                className="dashboard__img"
+                className="third__sub__img"
               />
             </div>
           </Fade>
           <Fade right cascade>
-            <div className="dashboard__right">
-              <h1 className="dashboard__view__title">Check Your Dashboard</h1>
-              <p className="dashboard__view__body">
+            <div className="third__sub__right">
+              <h1 className="third__sub__title">Check Your Dashboard</h1>
+              <p className="third__sub__body">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
                 ea expedita dolorem tempora tenetur possimus. Necessitatibus
                 quam modi quod neque iure saepe delectus ad, aperiam natus
                 consectetur ex odit voluptatem?
               </p>
               <Link to="/profile/dashboard">
-                <button className="dashboard__view__btn">Check</button>
+                <button className="third__sub__btn">Check</button>
               </Link>
             </div>
           </Fade>

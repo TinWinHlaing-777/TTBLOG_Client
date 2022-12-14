@@ -10,6 +10,7 @@ const Footer = () => {
       <div className="footer__container">
         <Fade right cascade>
           <div className="first__footer">
+            <p className="footer__text">Help</p>
             <IoMdHelpCircleOutline className="footer__icon" />
             <ul className="first__list">
               <li className="first__list__item">Help Center</li>
@@ -18,6 +19,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="second__footer">
+          <p className="footer__text">Privacy</p>
             <MdOutlinePolicy className="footer__icon" />
             <ul className="second__list">
               <li className="second__list__item">Privacy Policy</li>
@@ -25,6 +27,7 @@ const Footer = () => {
             </ul>
           </div>
           <div className="third__footer">
+            <p className="contact__text">Contact</p>
             <MdOutlineContactMail className="footer__icon" />
             <form className="contact__form">
               <input

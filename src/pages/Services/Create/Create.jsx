@@ -22,14 +22,16 @@ const Create = () => {
       <div className="create__manage__container">
         <Fade left cascade>
           <div className="create__manage__text__container">
-            <h1 className="create__manage__title">Edit Contents</h1>
-            <p className="create__manage__body">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore
-              cupiditate quaerat at voluptatum quae aspernatur exercitationem
-              illo, error dignissimos ex, fugiat, autem magnam molestias quam
-              minus! Sequi molestiae obcaecati eveniet.
-            </p>
-            <button className="create__manage__btn">Manage</button>
+            <div className="create__manage__left">
+              <h1 className="create__manage__title">Edit Contents</h1>
+              <p className="create__manage__body">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore
+                cupiditate quaerat at voluptatum quae aspernatur exercitationem
+                illo, error dignissimos ex, fugiat, autem magnam molestias quam
+                minus! Sequi molestiae obcaecati eveniet.
+              </p>
+              <button className="create__manage__btn">Manage</button>
+            </div>
           </div>
         </Fade>
         <Fade right cascade>

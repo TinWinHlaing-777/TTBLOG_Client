@@ -76,7 +76,12 @@ const Form = () => {
         .get(`${API_URL}/user/get_user_image/${data.getId}`)
         .then(res => {
           setIsImage(true);
-          setImgPath(`${MAIN_URL}/${res.data.image}`);
+          if (JSON.stringify(res.data.image)==='{}') {
+            setIsImage(false);
+          }else {
+            setIsImage(true);
+            setImgPath(`${MAIN_URL}/${res.data.image}`)
+          }
         })
         .catch(err => {
           console.log(err);
@@ -191,7 +196,7 @@ const Form = () => {
               className='profile__image__container'
               onClick={setOpenDialog}
             >
-              {isImage === true ? (
+              {isImage === true? (
                 <img
                   crossOrigin='anonymous'
                   src={imgPath}

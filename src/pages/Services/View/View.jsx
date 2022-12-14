@@ -20,8 +20,8 @@ const View = () => {
             </h1>
           </Fade>
           <Fade bottom>
-            <Link to="/views/all">
-              <button className="explore__btn">Explore</button>
+            <Link to="/views/all" className="explore__btn">
+               Explore
             </Link>
           </Fade>
         </div>
@@ -53,7 +53,7 @@ const View = () => {
         <div className="content__available__container">
           <h1 className="content__container__title">
             <Fade top cascade>
-              Most available content types
+              Most available content <br /> types
             </Fade>
           </h1>
           <Fade right cascade>
