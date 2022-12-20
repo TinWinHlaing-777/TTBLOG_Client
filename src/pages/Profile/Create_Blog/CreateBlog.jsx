@@ -39,7 +39,7 @@ const CreateBlog = (props) => {
                   title: data.post_title,
                   body: data.post_body,
                 });
-                setPostImage(data.postImage);
+                setPostImage(`${MAIN_URL}/${data.postImage}`);
               });
             })
             .catch((err) => {
@@ -120,7 +120,20 @@ const CreateBlog = (props) => {
     }
   };
 
-  console.log(postImage);
+  const deletePost = async () => {
+    try {
+      await axios
+        .patch(`${API_URL}/post/delete/${id}`)
+        .then((res) => {
+          navigate("/profile/manage");
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div style={{ paddingBottom: "20px" }}>
@@ -129,11 +142,7 @@ const CreateBlog = (props) => {
         <MenuItem />
         <div className="createBlog__container">
           <div className="create__title">{formTitle}</div>
-          <form
-            method="post"
-            className="create__container"
-            onSubmit={checkRoute === true ? updatePost : createPost}
-          >
+          <div className="create__container">
             <label htmlFor="title" className="create__label">
               Content Title
             </label>
@@ -162,7 +171,7 @@ const CreateBlog = (props) => {
                 <p className="image__text">Image in this post</p>
                 <img
                   crossOrigin="anonymous"
-                  src={`${MAIN_URL}/${postImage}`}
+                  src={postImage}
                   alt="profile"
                   className="current__img"
                 />
@@ -183,22 +192,34 @@ const CreateBlog = (props) => {
             )}
             {checkRoute === true ? (
               <div className="update__btn__container">
-                <button type="submit" className="update__btn">
+                <button
+                  type="submit"
+                  className="update__btn"
+                  onClick={updatePost}
+                >
                   <RiEdit2Line className="update__btn__icon" />
                   Update
                 </button>
-                <button type="submit" className="delete__btn">
-                  <IoTrashBinOutline className="delete__btn__icon" onClick={()=>console.log("hello")}/>
+                <button
+                  type="submit"
+                  className="delete__btn"
+                  onClick={deletePost}
+                >
+                  <IoTrashBinOutline className="delete__btn__icon" />
                   Delete
                 </button>
               </div>
             ) : (
-              <button type="submit" className="upload__btn">
+              <button
+                type="submit"
+                className="upload__btn"
+                onClick={createPost}
+              >
                 <HiOutlineUpload className="upload__btn__icon" />
                 Upload
               </button>
             )}
-          </form>
+          </div>
         </div>
       </div>
       {/* <EditorBox setDescription={setDescription} /> */}
