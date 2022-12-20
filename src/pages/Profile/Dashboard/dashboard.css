@@ -4,3 +4,60 @@
     align-items: flex-start;
     margin-top: 2%;
 }
+
+.chart__container{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    width: 70%;
+}
+
+.chart__header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.create__count__container{
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    background-color: #2C3E50;
+    width: auto;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+.active__count__container{
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    background-color: #2653d9;
+    width: auto;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+.delete__count__container{
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    background-color: #d92626;
+    width: auto;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 5px;
+}
+
+.chart__card__icon{
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    margin-bottom: .5rem;
+}
+
+.count__text{
+    font-size: 1.5rem;
+    color: #fff;
+    font-family: "Lora", sans-serif;
+    font-weight: bold;
+}
+
