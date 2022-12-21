@@ -10,6 +10,8 @@ import { useCallback } from "react";
 import { getLocalData } from "../../../utils/common";
 import axios from "axios";
 import { API_URL } from "../../../config";
+import Graph from "../../../components/Graphs/Graph";
+import DashboardTable from "../../../components/Tables/DashboardTable";
 
 const Dashboard = () => {
   const [createdPost, setCreatedPost] = React.useState();
@@ -59,6 +61,13 @@ const Dashboard = () => {
               <IoTrashBinOutline className="chart__card__icon" />
               <p className="count__text">{deletedPost} Posts Deleted</p>
             </div>
+          </div>
+          <div className="chart__body">
+            <Graph/>
+          </div>
+          <div className="chart__table">
+            <h1 className="chart__table__header">Active Posts</h1>
+            <DashboardTable/>
           </div>
         </div>
       </div>
