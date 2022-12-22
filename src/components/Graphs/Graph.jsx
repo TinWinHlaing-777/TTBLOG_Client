@@ -27,7 +27,7 @@ const Graph = () => {
         data: [8, 7.5, 6, 7, 4, 8, 5.5],
         backgroundColor: "transparent",
         borderColor: "#551E19",
-        pointBackgroundColor:"#551E19",
+        pointBackgroundColor: "#551E19",
         pointBorderColor: "transparent",
         pointBorderWidth: 2,
         borderWidth: 1.7,
@@ -48,7 +48,7 @@ const Graph = () => {
         color: "#551E19",
         font: {
           size: "24px",
-          family: "Helvetica Neue",
+          family: "Lora",
         },
         padding: {
           top: 30,
