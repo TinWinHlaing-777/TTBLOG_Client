@@ -16,25 +16,6 @@ const Home = () => {
 
   const [popular, setPopular] = useState([]);
 
-  const data = [
-    {
-      id: 1,
-      body: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae qui voluptatem eveniet, fugit voluptate expedita architecto voluptates neque. Iure autem maxime itaque quisquam voluptatibus accusamus tempora beatae quae consectetur tenetur!",
-    },
-    {
-      id: 2,
-      body: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae qui voluptatem eveniet, fugit voluptate expedita architecto voluptates neque. Iure autem maxime itaque quisquam voluptatibus accusamus tempora beatae quae consectetur tenetur!",
-    },
-    {
-      id: 3,
-      body: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae qui voluptatem eveniet, fugit voluptate expedita architecto voluptates neque. Iure autem maxime itaque quisquam voluptatibus accusamus tempora beatae quae consectetur tenetur!",
-    },
-    {
-      id: 4,
-      body: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quae qui voluptatem eveniet, fugit voluptate expedita architecto voluptates neque. Iure autem maxime itaque quisquam voluptatibus accusamus tempora beatae quae consectetur tenetur!",
-    },
-  ];
-
   const checkToken = useCallback(async () => {
     try {
       const data = {

@@ -5,7 +5,6 @@ import axios from "axios";
 import "./productcard.css";
 import { getLocalData } from "../../utils/common";
 import { useNavigate } from "react-router-dom";
-import { BiSearchAlt } from "react-icons/bi";
 
 const ProductCards = () => {
   const [postData, setPostData] = React.useState([]);
