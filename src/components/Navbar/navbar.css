@@ -11,7 +11,7 @@
 }
 
 .main__logo {
-  width: 250px;
+  width: 200px;
   height: auto;
   border-radius: 50%;
 }
@@ -21,6 +21,7 @@
   justify-content: space-around;
   align-items: center;
   list-style: none;
+  padding-bottom: 10px;
 }
 
 .list__item {

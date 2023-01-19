@@ -17,9 +17,12 @@
   text-transform: uppercase;
   text-align: center;
   font-weight: bold;
+  margin-bottom: 2rem;
 }
 
 .create__main__btn {
+  text-decoration: none;
+  background-color: #ebebeb;
   border: none;
   margin-top: 20px;
   padding: 10px 30px;

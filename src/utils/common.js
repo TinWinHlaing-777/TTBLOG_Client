@@ -14,3 +14,9 @@ export const getLocalData = () => {
 export const clearLocalData = () => {
   localStorage.clear();
 };
+
+export const checkToken = () => {
+  const checkData = getLocalData();
+  if (checkData.getId !== null && checkData.getToken !== null) return true;
+  else return false;
+};

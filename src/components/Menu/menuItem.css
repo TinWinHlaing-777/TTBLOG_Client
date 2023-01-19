@@ -37,12 +37,26 @@
 }
 
 @media screen and (max-width: 768px) {
+
+  .menu__container {
+    width: auto;
+    margin: 2rem auto;
+  }
+
+  .menu__list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+  }
+
   .list__text {
     display: none;
   }
 
   .menu__list__item {
-    padding: 5px 10px;
+    padding: 5px 15.5px;
+    margin-left: 5px;
   }
 
   .menu__icon {

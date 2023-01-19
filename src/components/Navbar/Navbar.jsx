@@ -1,24 +1,44 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { IoIosCreate } from "react-icons/io";
-import { MdLogin,MdDashboard } from "react-icons/md";
+import { MdLogin, MdDashboard } from "react-icons/md";
 import { BsPersonCircle } from "react-icons/bs";
-// import { TiInfo } from "react-icons/ti";
 import { AiFillHome } from "react-icons/ai";
 import "./navbar.css";
-import { getLocalData } from "../../utils/common";
+import { clearLocalData, getLocalData } from "../../utils/common";
+import { API_URL } from "../../config";
+import axios from "axios";
 
 const Navbar = () => {
   const [isToken, setIsToken] = React.useState(false);
   const data = getLocalData();
 
-  useEffect(() => {
-    const checkProfile = () => {
-      if (data.getId !== null && data.getToken !== null) setIsToken(true);
-      else setIsToken(false);
-    };
-    checkProfile();
+  const checkProfile = useCallback(async () => {
+    try {
+      const checkToken = {
+        token: data.getToken,
+      };
+      await axios
+        .post(`${API_URL}/check_token`, checkToken)
+        .then((res) => {
+          if (res.status === 200) {
+            setIsToken(true);
+          }
+        })
+        .catch((err) => {
+          if (err.status === 401) {
+            clearLocalData();
+            setIsToken(false);
+          }
+        });
+    } catch (error) {
+      console.log(error);
+    }
   }, [data]);
+
+  useEffect(() => {
+    checkProfile();
+  }, [checkProfile]);
 
   return (
     <div className="nav__container">
@@ -39,10 +59,6 @@ const Navbar = () => {
             <IoIosCreate className="list__item__icon" />
             <li className="list__item__text">Create</li>
           </Link>
-          {/* <Link className="list__item" to="/services/about">
-            <TiInfo className="list__item__icon" />
-            <li className="list__item__text">About Us</li>
-          </Link> */}
           {isToken === false ? (
             <Link className="list__item" to="/login">
               <MdLogin className="list__item__icon" />

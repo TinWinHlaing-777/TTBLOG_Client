@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useCallback, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import { useAlert } from "react-alert";
 import { useEffect } from "react";
-import { API_URL } from "../../config";
+import { API_URL, MAIN_URL } from "../../config";
 import axios from "axios";
 import { clearLocalData, getLocalData } from "../../utils/common";
-import "./home.css"
+import "./home.css";
 import { Fade } from "react-reveal";
 import Footer from "../../components/Footer/Footer";
 import { Link } from "react-router-dom";
@@ -13,6 +13,8 @@ import { Link } from "react-router-dom";
 const Home = () => {
   const token = getLocalData().getToken;
   const alert = useAlert();
+
+  const [popular, setPopular] = useState([]);
 
   const data = [
     {
@@ -33,11 +35,7 @@ const Home = () => {
     },
   ];
 
-  useEffect(() => {
-    checkToken();
-  });
-
-  const checkToken = async () => {
+  const checkToken = useCallback(async () => {
     try {
       const data = {
         token: token,
@@ -48,12 +46,40 @@ const Home = () => {
           alert.success("Welcome back!");
         })
         .catch((err) => {
+          console.log(err);
           clearLocalData();
         });
     } catch (error) {
+      console.log(error);
       alert.error(error.message);
     }
-  };
+  }, [alert, token]);
+
+  const getPopularPosts = useCallback(async () => {
+    try {
+      const postData = [];
+      await axios
+        .get(`${API_URL}/post/popular`)
+        .then((res) => {
+          res.data.forEach((item) => {
+            console.log(item);
+            postData.push(item);
+            let postArray = postData.slice(0, 4);
+            setPopular(postArray);
+          });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  useEffect(() => {
+    getPopularPosts();
+    checkToken();
+  }, [getPopularPosts, checkToken]);
   return (
     <>
       <Navbar />
@@ -72,7 +98,7 @@ const Home = () => {
           </div>
         </div>
         <div className="first__sub__container">
-          <Fade left cascade>
+          <Fade bottom cascade>
             <div className="first__sub__left">
               <h1 className="first__sub__title">View all contents</h1>
               <p className="first__sub__body">
@@ -89,7 +115,7 @@ const Home = () => {
               </Link>
             </div>
           </Fade>
-          <Fade right cascade>
+          <Fade bottom cascade>
             <div className="first__sub__right">
               <img
                 src="/images/view_image.png"
@@ -105,21 +131,22 @@ const Home = () => {
               Most Popular Blogs
             </Fade>
           </h1>
-          <Fade left cascade>
+          <Fade bottom cascade>
             <div className="card__main">
-              {data.map((index) => {
-                const { id, body } = index;
+              {popular.map((result, index) => {
                 return (
-                  <div className="card" key={id}>
+                  <div className="card" key={index}>
                     <div className="card__header">
                       <img
-                        src="/images/bg.png"
+                        crossOrigin="anonymous"
+                        src={`${MAIN_URL}/${result.postImage}`}
                         alt="smaple"
                         className="card__img"
                       />
                     </div>
                     <div className="card__body">
-                      <p className="card__body__text">{body}</p>
+                      <h3 className="card__body__title">{result.post_title}</h3>
+                      <p className="card__body__text">{result.post_body}</p>
                     </div>
                   </div>
                 );
@@ -133,7 +160,7 @@ const Home = () => {
           </Fade>
         </div>
         <div className="third__sub__container">
-          <Fade left>
+          <Fade bottom>
             <div className="third__sub__left">
               <img
                 src="/images/dashboard.png"
@@ -142,7 +169,7 @@ const Home = () => {
               />
             </div>
           </Fade>
-          <Fade right cascade>
+          <Fade bottom cascade>
             <div className="third__sub__right">
               <h1 className="third__sub__title">Check Your Dashboard</h1>
               <p className="third__sub__body">

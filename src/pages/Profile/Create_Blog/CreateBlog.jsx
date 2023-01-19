@@ -1,15 +1,21 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import Navbar from "../../../components/Navbar/Navbar";
 import MenuItem from "../../../components/Menu/MenuItem";
 import { HiOutlineUpload } from "react-icons/hi";
 import { RiEdit2Line } from "react-icons/ri";
 import { IoTrashBinOutline } from "react-icons/io5";
 import "./createBlog.css";
-import { getLocalData } from "../../../utils/common";
+import {
+  checkToken,
+  clearLocalData,
+  getLocalData,
+} from "../../../utils/common";
 import axios from "axios";
 import { API_URL, MAIN_URL } from "../../../config";
 import { useAlert } from "react-alert";
 import { useNavigate, useParams } from "react-router";
+import { Link } from "react-router-dom";
+import Footer from "../../../components/Footer/Footer";
 
 const CreateBlog = (props) => {
   const [postValue, setPostValue] = React.useState({
@@ -19,13 +25,23 @@ const CreateBlog = (props) => {
   const [postImage, setPostImage] = React.useState();
   const [formTitle, setFormTitle] = React.useState();
   const [checkRoute, setCheckRoute] = React.useState(false);
+  const [checkState, setCheckState] = React.useState(false);
 
   const userdata = getLocalData();
   const alert = useAlert();
   const navigate = useNavigate();
   const { id } = useParams();
 
-  useEffect(() => {
+  const checkStorage = useCallback(() => {
+    const checkData = checkToken();
+    if (checkData === true) setCheckState(true);
+    else {
+      clearLocalData();
+      setCheckState(false);
+    }
+  }, []);
+
+  const checkFormRoutes = useCallback(async () => {
     if (window.location.pathname.includes("/update_blog/")) {
       setCheckRoute(true);
       setFormTitle("Update Post");
@@ -59,6 +75,11 @@ const CreateBlog = (props) => {
       });
     }
   }, [id]);
+
+  useEffect(() => {
+    checkStorage();
+    checkFormRoutes();
+  }, [checkStorage, checkFormRoutes]);
 
   const handleTextFields = (props) => (event) => {
     setPostValue({ ...postValue, [props]: event.target.value });
@@ -136,94 +157,106 @@ const CreateBlog = (props) => {
   };
 
   return (
-    <div style={{ paddingBottom: "20px" }}>
+    <>
       <Navbar />
-      <div className="create__main__blog__container">
-        <MenuItem />
-        <div className="createBlog__container">
-          <div className="create__title">{formTitle}</div>
-          <div className="create__container">
-            <label htmlFor="title" className="create__label">
-              Content Title
-            </label>
-            <input
-              type="text"
-              className="create__input"
-              placeholder="Content Title"
-              id="title"
-              value={postValue.title}
-              onChange={handleTextFields("title")}
-            />
-            <label htmlFor="contentBody" className="create__label">
-              About User{" "}
-            </label>
-            <textarea
-              name="contentBody"
-              id="contentBody"
-              rows="15"
-              className="create__input"
-              placeholder="Write content to upload"
-              value={postValue.body}
-              onChange={handleTextFields("body")}
-            ></textarea>
-            {checkRoute === true ? (
-              <div className="current__update__container">
-                <p className="image__text">Image in this post</p>
-                <img
-                  crossOrigin="anonymous"
-                  src={postImage}
-                  alt="profile"
-                  className="current__img"
-                />
-              </div>
-            ) : (
-              <div className="upload__image__container">
-                <label htmlFor="upload_image" className="create__label">
-                  Upload Image
-                </label>
-                <input
-                  type="file"
-                  name="image__file"
-                  id="upload_image"
-                  className="upload__image__input"
-                  onChange={handlePostImage}
-                />
-              </div>
-            )}
-            {checkRoute === true ? (
-              <div className="update__btn__container">
+      {checkState === true ? (
+        <div className="create__main__blog__container">
+          <MenuItem />
+          <div className="createBlog__container">
+            <div className="create__title">{formTitle}</div>
+            <div className="create__container">
+              <label htmlFor="title" className="create__label">
+                Content Title
+              </label>
+              <input
+                type="text"
+                className="create__input"
+                placeholder="Content Title"
+                id="title"
+                value={postValue.title}
+                onChange={handleTextFields("title")}
+              />
+              <label htmlFor="contentBody" className="create__label">
+                Content Body{" "}
+              </label>
+              <textarea
+                name="contentBody"
+                id="contentBody"
+                rows="15"
+                className="create__input"
+                placeholder="Write content to upload"
+                value={postValue.body}
+                onChange={handleTextFields("body")}
+              ></textarea>
+              {checkRoute === true ? (
+                <div className="current__update__container">
+                  <p className="image__text">
+                    Image in this post (** Image Cannot be Updatable **)
+                  </p>
+                  <img
+                    crossOrigin="anonymous"
+                    src={postImage}
+                    alt="profile"
+                    className="current__img"
+                  />
+                </div>
+              ) : (
+                <div className="upload__image__container">
+                  <label htmlFor="upload_image" className="create__label">
+                    Upload Image
+                  </label>
+                  <input
+                    type="file"
+                    name="image__file"
+                    id="upload_image"
+                    className="upload__image__input"
+                    onChange={handlePostImage}
+                  />
+                </div>
+              )}
+              {checkRoute === true ? (
+                <div className="update__btn__container">
+                  <button
+                    type="submit"
+                    className="update__btn"
+                    onClick={updatePost}
+                  >
+                    <RiEdit2Line className="update__btn__icon" />
+                    Update
+                  </button>
+                  <button
+                    type="submit"
+                    className="delete__btn"
+                    onClick={deletePost}
+                  >
+                    <IoTrashBinOutline className="delete__btn__icon" />
+                    Delete
+                  </button>
+                </div>
+              ) : (
                 <button
                   type="submit"
-                  className="update__btn"
-                  onClick={updatePost}
+                  className="upload__btn"
+                  onClick={createPost}
                 >
-                  <RiEdit2Line className="update__btn__icon" />
-                  Update
+                  <HiOutlineUpload className="upload__btn__icon" />
+                  Upload
                 </button>
-                <button
-                  type="submit"
-                  className="delete__btn"
-                  onClick={deletePost}
-                >
-                  <IoTrashBinOutline className="delete__btn__icon" />
-                  Delete
-                </button>
-              </div>
-            ) : (
-              <button
-                type="submit"
-                className="upload__btn"
-                onClick={createPost}
-              >
-                <HiOutlineUpload className="upload__btn__icon" />
-                Upload
-              </button>
-            )}
+              )}
+            </div>
           </div>
         </div>
-      </div>
-      {/* <EditorBox setDescription={setDescription} /> */}
-    </div>
+      ) : (
+        <h1 className="warning__login__text">
+          Please
+          <Link to="/login" className="warning__span">
+            &nbsp;Login&nbsp;
+          </Link>
+          to access your account!
+        </h1>
+      )}
+      <Footer />
+    </>
   );
 };
 

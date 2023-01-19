@@ -3,10 +3,30 @@
   justify-content: space-around;
   align-items: flex-start;
   margin-top: 2%;
+  margin-bottom: 2rem;
+}
+
+.warning__login__text{
+  text-align: center;
+  margin: 10rem;
+  color: #b3b6b7;
+  font-family: "Lora", sans-serif;
+  text-transform: uppercase;
+}
+
+.warning__span{
+  text-decoration: none;
+  color: #531e1aa8;
+}
+
+.warning__span:hover{
+  color: #531e1aeb;
 }
 
 @media screen and (max-width: 768px) {
-  .container {
-    padding-bottom: 0px;
+  .warning__login__text{
+    font-size: 18px;
+    margin: 10rem 0;
+
   }
 }

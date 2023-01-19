@@ -5,6 +5,7 @@ import axios from "axios";
 import "./productcard.css";
 import { getLocalData } from "../../utils/common";
 import { useNavigate } from "react-router-dom";
+import { BiSearchAlt } from "react-icons/bi";
 
 const ProductCards = () => {
   const [postData, setPostData] = React.useState([]);
@@ -69,12 +70,9 @@ const ProductCards = () => {
   return (
     <>
       <div className="list__header">
-        <h1 className="show__list__title">Find Preferable Content</h1>
-        <input
-          type="text"
-          className="find__post__input"
-          placeholder="Find the relevant contents"
-        />
+        <h1 className="show__list__title">
+          🎉 Incredible Contents are Ready for you 🎉
+        </h1>
       </div>
       <div className="list__card__container">
         {postData.map((element, index) => {

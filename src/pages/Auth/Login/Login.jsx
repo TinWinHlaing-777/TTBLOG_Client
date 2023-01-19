@@ -55,41 +55,41 @@ const Login = () => {
 
   return (
     <div className="main__container">
-          <form method="post" onSubmit={loginUser} className="register__form">
-          <img src="/images/main_logo.png" alt="logo" className="logo__img" />
-            <input
-              type="email"
-              name="Email"
-              id="email"
-              placeholder="example@gmail.com"
-              className="input__check margin__fixed"
-              value={values.email}
-              onChange={handleChange("email")}
-            />
-            <input
-              type="password"
-              name="Password"
-              id="password"
-              className="input__check margin__fixed"
-              placeholder="Password"
-              value={values.password}
-              onChange={handleChange("password")}
-            />
-            <Link to="/forget_password" className="forget__text margin__fixed">
-              Forget Password?
-            </Link>
-            <button type="submit" className="submit__btn">
-              <MdLogin className="btn__icon" />
-              Login
-            </button>
-          <p className="spam__text__container">
-            If you don't have an account, please{" "}
-            <Link to="/register" className="spam__text">
-              register first
-            </Link>
-          </p>
-          </form>
-        </div>
+      <form method="post" onSubmit={loginUser} className="register__form">
+        <img src="/images/main_logo.png" alt="logo" className="logo__img" />
+        <input
+          type="email"
+          name="Email"
+          id="email"
+          placeholder="example@gmail.com"
+          className="input__check margin__fixed"
+          value={values.email}
+          onChange={handleChange("email")}
+        />
+        <input
+          type="password"
+          name="Password"
+          id="password"
+          className="input__check margin__fixed"
+          placeholder="Password"
+          value={values.password}
+          onChange={handleChange("password")}
+        />
+        <Link to="/forget_password" className="forget__text margin__fixed">
+          Forget Password?
+        </Link>
+        <button type="submit" className="submit__btn">
+          <MdLogin className="btn__icon" />
+          Login
+        </button>
+        <p className="spam__text__container">
+          If you don't have an account, please{" "}
+          <Link to="/register" className="spam__text">
+            register first
+          </Link>
+        </p>
+      </form>
+    </div>
   );
 };
 

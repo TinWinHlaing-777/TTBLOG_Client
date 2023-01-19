@@ -1,5 +1,6 @@
 import React from "react";
 import { Fade } from "react-reveal";
+import { Link } from "react-router-dom";
 import Footer from "../../../components/Footer/Footer";
 import Navbar from "../../../components/Navbar/Navbar";
 import "./create.css";
@@ -16,7 +17,9 @@ const Create = () => {
           </h1>
         </Fade>
         <Fade bottom>
-          <button className="create__main__btn">Create New Content</button>
+          <Link to="/profile/create_blog" className="create__main__btn">
+            Create New Content
+          </Link>
         </Fade>
       </div>
       <div className="create__manage__container">
@@ -30,7 +33,9 @@ const Create = () => {
                 illo, error dignissimos ex, fugiat, autem magnam molestias quam
                 minus! Sequi molestiae obcaecati eveniet.
               </p>
-              <button className="create__manage__btn">Manage</button>
+              <Link to="/profile/manage">
+                <button className="create__manage__btn">Manage</button>
+              </Link>
             </div>
           </div>
         </Fade>
@@ -115,7 +120,9 @@ const Create = () => {
           </div>
         </Fade>
         <Fade bottom>
-          <button className="create__card__btn">More</button>
+          <Link to="/views/all">
+            <button className="create__card__btn">More</button>
+          </Link>
         </Fade>
       </div>
       <div className="create__check__container">
@@ -139,7 +146,9 @@ const Create = () => {
               praesentium eos facilis, tempore ab ipsam veritatis vel iusto
               voluptates perferendis quisquam aperiam placeat.
             </p>
-            <button className="create__check__btn">Services</button>
+            <Link to="/profile/main">
+              <button className="create__check__btn">Services</button>
+            </Link>
           </div>
         </Fade>
       </div>

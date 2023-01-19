@@ -173,12 +173,12 @@ const DetailsPost = () => {
                 {like === false ? (
                   <button className="btn__like" onClick={() => addLike()}>
                     <AiFillLike />
-                    Like
+                    <span className="btn__text">Like</span>
                   </button>
                 ) : (
                   <button className="btn__like" onClick={() => removeLikes()}>
                     <AiFillDislike />
-                    Dislike
+                    <span className="btn__text">Dislike</span>
                   </button>
                 )}
                 <input

@@ -122,15 +122,15 @@
   background-color: #541d1ae2;
 }
 
-.delete__btn{
-    border: none;
+.delete__btn {
+  border: none;
   margin-top: 20px;
   padding: 10px 30px;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
   color: #fff;
-  background-color: #CC0000;
+  background-color: #cc0000;
   font-family: "Lora", serif;
   transition: 0.6s ease;
   font-weight: bold;
@@ -148,11 +148,39 @@
 }
 
 @media screen and (max-width: 768px) {
+  .create__main__blog__container {
+    flex-direction: column;
+  }
+
   .createBlog__container {
     width: 90%;
+    margin: auto auto 3rem auto;
   }
 
   .create__container {
     margin: 10px 20px;
+  }
+
+  .create__title {
+    font-size: 22px;
+    margin-bottom: 2rem;
+  }
+
+  .create__label,
+  .image__text {
+    font-size: 16px;
+  }
+
+  .current__img {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+
+  .upload__btn,
+  .update__btn,
+  .delete__btn {
+    font-size: 14px;
+    padding: 10px 20px;
   }
 }

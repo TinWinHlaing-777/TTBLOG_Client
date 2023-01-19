@@ -20,7 +20,8 @@
 .table__image {
   width: 50px;
   height: 50px;
-  border-radius: 50%;
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px lightgray;
 }
 
 .table__text {
@@ -33,18 +34,49 @@
     font-weight: bold;
 }
 
-.table__btn {
+.table__text__subtitle{
+  font-size: 14px;
+  color: #551f1991;
+  font-weight: bold;
+  margin-top: 5px;
+}
+
+.table__active {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.table__btn__text {
+.table__active__text {
   font-weight: bold;
 }
 
-.table__btn__icon {
+.table__active__icon {
   margin-top: 2px;
   margin-left: 10px;
   color: #14a44d;
+}
+
+@media screen and (max-width: 768px) {
+  .table__image{
+    width: 40px;
+    height: 40px;
+  }
+
+  .table__text{
+    margin-left: 1rem;
+  }
+
+  .table__text__title{
+    font-size: 14px;
+  }
+
+  .table__text__subtitle{
+    font-size: 10px;
+  }
+
+  .table__active__text{
+    font-size: 14px;
+  }
+
 }
